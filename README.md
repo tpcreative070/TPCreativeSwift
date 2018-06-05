@@ -1,7 +1,7 @@
 # TPCreative is small library. The goal collections which lib popular on IOS and CustomView
 
 
-# ** How to use. **
+# **How to use.**
 
 
 ## CocoaPods
