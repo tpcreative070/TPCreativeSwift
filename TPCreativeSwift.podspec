@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TPCreativeSwift"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = 'Lightweight library for iOS'
 
 
@@ -103,7 +103,7 @@ Pod::Spec.new do |s|
   #
 
 
-  s.source_files  = 'Classes/*.{h,m,swift}'
+  s.source_files  = 'TPCreativeSwift/Source/*.{swift}'
 
   # s.public_header_files = "Classes/**/*.h"
 
