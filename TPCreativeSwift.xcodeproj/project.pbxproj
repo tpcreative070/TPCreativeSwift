@@ -11,6 +11,9 @@
 		2861C18820C6524D00374B5A /* TPCreativeSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861C18720C6524D00374B5A /* TPCreativeSwiftTests.swift */; };
 		2861C18A20C6524D00374B5A /* TPCreativeSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 2861C17C20C6524D00374B5A /* TPCreativeSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2861C19820C65B9A00374B5A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861C19720C65B9A00374B5A /* CustomView.swift */; };
+		2861C19A20C66F1C00374B5A /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861C19920C66F1C00374B5A /* FloatingTextField.swift */; };
+		2861C19D20C6709200374B5A /* FloatingTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861C19B20C6709200374B5A /* FloatingTextFieldWithIcon.swift */; };
+		2861C19E20C6709200374B5A /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861C19C20C6709200374B5A /* UITextField+fixCaretPosition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,9 @@
 		2861C18720C6524D00374B5A /* TPCreativeSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCreativeSwiftTests.swift; sourceTree = "<group>"; };
 		2861C18920C6524D00374B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2861C19720C65B9A00374B5A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		2861C19920C66F1C00374B5A /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
+		2861C19B20C6709200374B5A /* FloatingTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		2861C19C20C6709200374B5A /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +97,11 @@
 		2861C19620C65B8600374B5A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2861C19B20C6709200374B5A /* FloatingTextFieldWithIcon.swift */,
+				2861C19C20C6709200374B5A /* UITextField+fixCaretPosition.swift */,
 				2861C17C20C6524D00374B5A /* TPCreativeSwift.h */,
 				2861C19720C65B9A00374B5A /* CustomView.swift */,
+				2861C19920C66F1C00374B5A /* FloatingTextField.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -207,6 +216,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2861C19820C65B9A00374B5A /* CustomView.swift in Sources */,
+				2861C19D20C6709200374B5A /* FloatingTextFieldWithIcon.swift in Sources */,
+				2861C19E20C6709200374B5A /* UITextField+fixCaretPosition.swift in Sources */,
+				2861C19A20C66F1C00374B5A /* FloatingTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

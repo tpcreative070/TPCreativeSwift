@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TPCreativeSwift"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
+  s.swift_version = '4.1'
   s.summary      = 'Lightweight library for iOS'
 
 
@@ -50,8 +51,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+
+  s.license      = { :type => "MIT"}
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -145,5 +146,9 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+
+  #pod spec create [NAME|https://github.com/USER/REPO]
+  #pod spec lint --allow-warnings
+  #pod trunk push TPCreative.podspec --allow-warnings
 
 end
