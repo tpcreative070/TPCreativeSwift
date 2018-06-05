@@ -74,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				2861C19620C65B8600374B5A /* Source */,
-				2861C17C20C6524D00374B5A /* TPCreativeSwift.h */,
 				2861C17D20C6524D00374B5A /* Info.plist */,
 			);
 			path = TPCreativeSwift;
@@ -92,6 +91,7 @@
 		2861C19620C65B8600374B5A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2861C17C20C6524D00374B5A /* TPCreativeSwift.h */,
 				2861C19720C65B9A00374B5A /* CustomView.swift */,
 			);
 			path = Source;
