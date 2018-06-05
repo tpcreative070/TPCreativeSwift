@@ -16,6 +16,11 @@ import UIKit
     - font: Set your icon by setting the font of iconLabel
     - image: Set your icon by setting the image of iconImageView
  */
+/**
+ Identify the type of icon.
+ - font: Set your icon by setting the font of iconLabel
+ - image: Set your icon by setting the image of iconImageView
+ */
 public enum IconType: Int {
     case font
     case image
@@ -25,27 +30,27 @@ public enum IconType: Int {
  A beautiful and flexible textfield implementation with support for icon, title label, error message and placeholder.
  */
 open class FloatingTextFieldWithIcon: FloatingTextField {
-
+    
     @IBInspectable
     var iconTypeValue: Int {
         get {
             return self.iconType.rawValue
         }
-
+        
         set(iconIndex) {
             self.iconType = IconType(rawValue: iconIndex) ?? .font
         }
     }
-
+    
     open var iconType: IconType = .font {
         didSet {
             updateIconViewHiddenState()
         }
     }
-
+    
     /// A UIImageView value that identifies the view used to display the icon
     open var iconImageView: UIImageView!
-
+    
     /// A UIImage value that determines the image that the icon is using
     @IBInspectable
     dynamic open var iconImage: UIImage? {
@@ -55,17 +60,17 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             iconImageView?.image = iconImage
         }
     }
-
+    
     /// A UILabel value that identifies the label used to display the icon
     open var iconLabel: UILabel!
-
+    
     /// A UIFont value that determines the font that the icon is using
     @objc dynamic open var iconFont: UIFont? {
         didSet {
             iconLabel?.font = iconFont
         }
     }
-
+    
     /// A String value that determines the text used when displaying the icon
     @IBInspectable
     open var iconText: String? {
@@ -75,7 +80,7 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             iconLabel?.text = iconText
         }
     }
-
+    
     /// A UIColor value that determines the color of the icon in the normal state
     @IBInspectable
     dynamic open var iconColor: UIColor = UIColor.gray {
@@ -83,7 +88,7 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             updateIconLabelColor()
         }
     }
-
+    
     /// A UIColor value that determines the color of the icon when the control is selected
     @IBInspectable
     dynamic open var selectedIconColor: UIColor = UIColor.gray {
@@ -91,7 +96,7 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             updateIconLabelColor()
         }
     }
-
+    
     /// A float value that determines the width of the icon
     @IBInspectable
     dynamic open var iconWidth: CGFloat = 20 {
@@ -99,9 +104,9 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             updateFrame()
         }
     }
-
+    
     /**
-     A float value that determines the left margin of the icon. 
+     A float value that determines the left margin of the icon.
      Use this value to position the icon more precisely horizontally.
      */
     @IBInspectable
@@ -110,9 +115,9 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             updateFrame()
         }
     }
-
+    
     /**
-     A float value that determines the bottom margin of the icon. 
+     A float value that determines the bottom margin of the icon.
      Use this value to position the icon more precisely vertically.
      */
     @IBInspectable
@@ -121,7 +126,7 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             updateFrame()
         }
     }
-
+    
     /**
      A float value that determines the rotation in degrees of the icon.
      Use this value to rotate the icon in either direction.
@@ -133,9 +138,9 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             iconImageView.transform = CGAffineTransform(rotationAngle: CGFloat(iconRotationDegrees * .pi / 180.0))
         }
     }
-
+    
     // MARK: Initializers
-
+    
     /**
      Initializes the control
      - parameter type the type of icon
@@ -145,17 +150,17 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
         self.iconType = iconType
         updateIconViewHiddenState()
     }
-
+    
     /**
-    Initializes the control
-    - parameter frame the frame of the control
-    */
+     Initializes the control
+     - parameter frame the frame of the control
+     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
         createIcon()
         updateIconViewHiddenState()
     }
-
+    
     /**
      Intialzies the control by deserializing it
      - parameter coder the object to deserialize the control from
@@ -165,17 +170,17 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
         createIcon()
         updateIconViewHiddenState()
     }
-
+    
     // MARK: Creating the icon
-
+    
     /// Creates the both icon label and icon image view
     fileprivate func createIcon() {
         createIconLabel()
         createIconImageView()
     }
-
+    
     // MARK: Creating the icon label
-
+    
     /// Creates the icon label
     fileprivate func createIconLabel() {
         let iconLabel = UILabel()
@@ -186,9 +191,9 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
         addSubview(iconLabel)
         updateIconLabelColor()
     }
-
+    
     // MARK: Creating the icon image view
-
+    
     /// Creates the icon image view
     fileprivate func createIconImageView() {
         let iconImageView = UIImageView()
@@ -198,9 +203,9 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
         self.iconImageView = iconImageView
         addSubview(iconImageView)
     }
-
+    
     // MARK: Set icon hidden property
-
+    
     /// Shows the corresponding icon depending on iconType property
     fileprivate func updateIconViewHiddenState() {
         switch iconType {
@@ -212,15 +217,15 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             self.iconImageView.isHidden = false
         }
     }
-
+    
     // MARK: Handling the icon color
-
+    
     /// Update the colors for the control. Override to customize colors.
     override open func updateColors() {
         super.updateColors()
         updateIconLabelColor()
     }
-
+    
     fileprivate func updateIconLabelColor() {
         if !isEnabled {
             iconLabel?.textColor = disabledColor
@@ -230,15 +235,15 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
             iconLabel?.textColor = editingOrSelected ? selectedIconColor : iconColor
         }
     }
-
+    
     // MARK: Custom layout overrides
-
+    
     /**
      Calculate the bounds for the textfield component of the control.
      Override to create a custom size textbox in the control.
      - parameter bounds: The current bounds of the textfield component
      - returns: The rectangle that the textfield component should render in
-    */
+     */
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.textRect(forBounds: bounds)
         if isLTRLanguage {
@@ -249,7 +254,7 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
-
+    
     /**
      Calculate the rectangle for the textfield when it is being edited
      - parameter bounds: The current bounds of the field
@@ -265,9 +270,9 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
-
+    
     /**
-     Calculates the bounds for the placeholder component of the control. 
+     Calculates the bounds for the placeholder component of the control.
      Override to create a custom size textbox in the control.
      - parameter bounds: The current bounds of the placeholder component
      - returns: The rectangle that the placeholder component should render in
@@ -282,13 +287,13 @@ open class FloatingTextFieldWithIcon: FloatingTextField {
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
-
+    
     /// Invoked by layoutIfNeeded automatically
     override open func layoutSubviews() {
         super.layoutSubviews()
         updateFrame()
     }
-
+    
     fileprivate func updateFrame() {
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {

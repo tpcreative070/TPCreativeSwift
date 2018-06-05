@@ -16,15 +16,13 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TPCreativeSwift"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.swift_version = '4.1'
   s.summary      = 'Lightweight library for iOS'
 
 
   s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.10'
-  s.tvos.deployment_target = '9.0'
-  s.watchos.deployment_target = '2.0'
+  
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -65,10 +63,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "tpcreative" => "email@address.com" }
+  s.author             = { "tpcreative" => "tpcreative.co@gmail.com" }
   # Or just: s.author    = "tpcreative"
   # s.authors            = { "tpcreative" => "email@address.com" }
-  # s.social_media_url   = "http://twitter.com/tpcreative"
+  s.social_media_url   = "http://tpcreative.co"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -149,7 +147,7 @@ Pod::Spec.new do |s|
 
   #pod spec create [NAME|https://github.com/USER/REPO]
   #pod spec lint --allow-warnings
-  #pod trunk push TPCreative.podspec --allow-warnings
-  
+  #pod trunk push TPCreativeSwift.podspec --allow-warnings
+
 
 end

@@ -6,7 +6,6 @@
 //  Copyright © 2018 Mac10. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 /**
@@ -18,7 +17,7 @@ open class FloatingTextField: UITextField { // swiftlint:disable:this type_body_
      A Boolean value that determines if the language displayed is LTR.
      Default value set automatically from the application language settings.
      */
-    @objc open var isLTRLanguage: Bool = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+    open var isLTRLanguage: Bool = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         didSet {
             updateTextAligment()
         }
@@ -114,27 +113,6 @@ open class FloatingTextField: UITextField { // swiftlint:disable:this type_body_
     
     /// A UIColor value that determines the color used for the title label and line when the error message is not `nil`
     @IBInspectable dynamic open var errorColor: UIColor = .red {
-        didSet {
-            updateColors()
-        }
-    }
-    
-    /// A UIColor value that determines the color used for the line when error message is not `nil`
-    @IBInspectable dynamic open var lineErrorColor: UIColor? {
-        didSet {
-            updateColors()
-        }
-    }
-    
-    /// A UIColor value that determines the color used for the text when error message is not `nil`
-    @IBInspectable dynamic open var textErrorColor: UIColor? {
-        didSet {
-            updateColors()
-        }
-    }
-    
-    /// A UIColor value that determines the color used for the title label when error message is not `nil`
-    @IBInspectable dynamic open var titleErrorColor: UIColor? {
         didSet {
             updateColors()
         }
@@ -428,7 +406,7 @@ open class FloatingTextField: UITextField { // swiftlint:disable:this type_body_
         if !isEnabled {
             lineView.backgroundColor = disabledColor
         } else if hasErrorMessage {
-            lineView.backgroundColor = lineErrorColor ?? errorColor
+            lineView.backgroundColor = errorColor
         } else {
             lineView.backgroundColor = editingOrSelected ? selectedLineColor : lineColor
         }
@@ -438,7 +416,7 @@ open class FloatingTextField: UITextField { // swiftlint:disable:this type_body_
         if !isEnabled {
             titleLabel.textColor = disabledColor
         } else if hasErrorMessage {
-            titleLabel.textColor = titleErrorColor ?? errorColor
+            titleLabel.textColor = errorColor
         } else {
             if editingOrSelected || isHighlighted {
                 titleLabel.textColor = selectedTitleColor
@@ -452,7 +430,7 @@ open class FloatingTextField: UITextField { // swiftlint:disable:this type_body_
         if !isEnabled {
             super.textColor = disabledColor
         } else if hasErrorMessage {
-            super.textColor = textErrorColor ?? errorColor
+            super.textColor = errorColor
         } else {
             super.textColor = cachedTextColor
         }
@@ -623,11 +601,7 @@ open class FloatingTextField: UITextField { // swiftlint:disable:this type_body_
      -returns: the calculated height of the textfield. Override to size the textfield with a different height
      */
     open func textHeight() -> CGFloat {
-        guard let font = self.font else {
-            return 0.0
-        }
-        
-        return font.lineHeight + 7.0;
+        return self.font!.lineHeight + 7.0
     }
     
     // MARK: - Layout
@@ -678,4 +652,4 @@ open class FloatingTextField: UITextField { // swiftlint:disable:this type_body_
         }
         return titleFormatter(title)
     }
-} // swiftlint:d
+} // swiftlint:disable:this file_length
